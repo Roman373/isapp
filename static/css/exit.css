@@ -27,3 +27,9 @@ input {
 .exitBtn:hover {
   background-color: #a8a7a7;
 }
+#nullExit{
+  text-align: center;
+  padding: 10px;
+  color: red;
+  font-size: 20px;
+}

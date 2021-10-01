@@ -9,9 +9,10 @@
 <body>
     <div class="exit">
         <h2 style="text-align: center">Авторизация</h2>
-        <input type="text" placeholder="Логин" name="myLogin"><br>
-        <input type="password" placeholder="Пароль" name="myPassword">
-        <button id='btn' onclick="btn" class="exitBtn">Вход</button>
+        <input type="text" placeholder="Логин" id="myLogin"><br>
+        <input type="password" placeholder="Пароль" id="myPassword">
+        <div id="nullExit"></div>
+        <button id='btn' onclick=btn() class="exitBtn">Вход</button>
     </div>
 <script src="{% static 'js/exit.js' %}"></script>
 </body>

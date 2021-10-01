@@ -1,8 +1,8 @@
-document.getElementById("btn").onclick = function () {
-    var inputLogin = document.getElementById("mylogin").value;
-    var inputPassword = document.getElementById("mypassword").value;
-    if (inputLogin === ''|| inputPassword === "") {
-        alert("Вы должны что-то написать!");
+function btn() {
+    var inputLogin = document.getElementById("myLogin").value;
+    var inputPassword = document.getElementById("myPassword").value;
+    if (inputLogin === '' || inputPassword === "") {
+        document.getElementById('nullExit').innerHTML="Вы должны что-то написать!";
     }
     else {
         window.location.href='index.html';
