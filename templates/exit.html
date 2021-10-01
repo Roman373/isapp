@@ -1,12 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/exit.css'%}" type="text/css">
+    <title>Вход</title>
 </head>
 <body>
-<input type="text" placeholder="Логин">
-<input type="password" placeholder="Пароль">
-<button window.location.href='index.html'></button>
+    <div class="exit">
+        <h2 style="text-align: center">Авторизация</h2>
+        <input type="text" placeholder="Логин" name="myLogin"><br>
+        <input type="password" placeholder="Пароль" name="myPassword">
+        <button id='btn' onclick="btn" class="exitBtn">Вход</button>
+    </div>
+<script src="{% static 'js/exit.js' %}"></script>
 </body>
 </html>
