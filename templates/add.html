@@ -10,13 +10,15 @@
 <button name="write" class="exitBtn" onclick="window.location.href='exit.html'">Выход</button>
 <h3 class="cssdata">Сегодня:<div id="current_date_time_block"></div></h3>
       <h2 id="myDIV">Новая задача</h2>
-    <div id="my">
+    <form id="my" method="post" >
+        {% csrf_token %}
         <p >Название: </p>
-        <input  type="text" id="myInput" placeholder="Название..."/><br>
+        {{ form.task_name }}<br>
         <p id="text">Дата завершения: </p>
-        <br><input type="date" id="myDate" name="myDate"/>
-    </div>
-      <button onclick="newElement(window.location.href='index.html')" class="addBtn">Добавить</button>
+        <br>{{ form.data }}
+        <span> {{ error }}</span>
+    </form>
+      <button onclick="newElement(window.location.href='index.html')" class="addBtn" type="submit">Добавить</button>
     </div>
 <script src="{% static 'js/script.js' %}"></script>
 </body>

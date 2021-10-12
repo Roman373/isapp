@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic.list import ListView
-
+from .forms import TaskForm
 from pulls.models import Task
 
 
@@ -14,17 +14,31 @@ class ExitPage(View):
 
 class MainPage(View):
     def get(self, request):
-        context = {}
+        tasks = Task.objects.all()
+
+        context = {
+            "tasks": tasks
+        }
+
         return render(request, 'index.html', context=context)
+
+    def Task(self,request):
+        form = TaskForm()
 
 
 class AddPage(View):
     def get(self, request):
-        context = {Task.objects.all()}
-        return render(request, 'add.html', context=context)
-
-
-class TasksView(ListView):
-    model = Task
-    template_name = 'index.html'
-    context_object_name = 'tasks'
+        error = ""
+        if request.method == 'POST':
+            form = TaskForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('index.html')
+            else:
+                error = "Ошибка формы"
+        form = TaskForm()
+        data = {
+            'form': form,
+            'error': error
+        }
+        return render(request, 'add.html',data)
