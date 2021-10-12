@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse
+from django.views.generic.list import ListView
+
+from pulls.models import Task
 
 
 class ExitPage(View):
@@ -17,5 +20,11 @@ class MainPage(View):
 
 class AddPage(View):
     def get(self, request):
-        context = {}
+        context = {Task.objects.all()}
         return render(request, 'add.html', context=context)
+
+
+class TasksView(ListView):
+    model = Task
+    template_name = 'index.html'
+    context_object_name = 'tasks'

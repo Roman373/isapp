@@ -7,6 +7,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', ExitPage.as_view()),
     path('exit.html', ExitPage.as_view()),
-    path('index.html', MainPage.as_view()),
+    path('index.html', TasksView.as_view()),
     path('add.html', AddPage.as_view()),
 ]
