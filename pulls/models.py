@@ -11,7 +11,8 @@ class User(models.Model):
 
 
 class Task(models.Model):
+    status = models.CharField(max_length=20)
     task_name = models.CharField(max_length=50)
     data = models.DateField()
-    status = models.CharField(max_length=20)
+
     User_id = models.ForeignKey(User, on_delete=models.CASCADE)

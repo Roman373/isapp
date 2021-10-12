@@ -15,9 +15,10 @@
     <table id="myUL">
         {% for task in tasks %}
         <tr class='success'>
+            <td>{{ task.status }}</td>
             <td>{{ task.name}}</td>
             <td>{{ task.data }}</td>
-            <td>{{ task.status }}</td>
+
         </tr>
         {% endfor %}
     </table>
