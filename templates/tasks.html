@@ -1,0 +1,7 @@
+{% block content %}
+        <tr class='success'>
+            <td style='width:1%' >{{ task.status }}</td>
+            <td style='width:87%'>{{ task.task_name}}</td>
+            <td style='width:12%'>{{ task.data| date:"d.m.Y" }}</td>
+        </tr>
+{% endblock %}

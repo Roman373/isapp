@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from django.views.generic.list import ListView
 from .forms import TaskForm
 from pulls.models import Task
+from django.utils import timezone
+from .basa import  *
 
 
 class ExitPage(View):
@@ -15,9 +17,12 @@ class ExitPage(View):
 class MainPage(View):
     def get(self, request):
         tasks = Task.objects.all()
-
+        date_today = timezone.now()
+        tasks = get_task()
         context = {
-            "tasks": tasks
+            "tasks": tasks,
+            "date_today": date_today,
+            "tasks ": tasks
         }
 
         return render(request, 'index.html', context=context)

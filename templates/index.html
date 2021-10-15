@@ -1,5 +1,4 @@
 {% load static %}
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -9,19 +8,14 @@
 <body>
 <button name="write" class="exitBtn" onclick="window.location.href='exit.html'">Выход</button>
 </div>
-<h3 class="cssdata">Сегодня:<div id="current_date_time_block"></div></h3>
-      <h2 id="myDIV">Cписок дел</h2>
+<h3 class="cssdata">Сегодня: <div >{{date_today | date:"d.m.Y"}}</div></h3>
+<h2 id="myDIV">Cписок дел</h2>
+<table id="myUL">
+{% for task in tasks %}
+{% include 'tasks.html' %}
+{% endfor %}
+</table>
+<button onclick="window.location.href='add.html' " class="addBtn">Добавить</button>
 
-    <table id="myUL">
-        {% for task in tasks %}
-        <tr class='success'>
-            <td style='width:10%' >{{ task.status }}</td>
-            <td style='width:55%'>{{ task.task_name}}</td>
-            <div id="current_date_time_block"><td >{{ task.data }}</td></div>
-        </tr>
-        {% endfor %}
-    </table>
-      <span onclick="window.location.href='add.html' " class="addBtn">Добавить</span>
-    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
