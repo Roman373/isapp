@@ -16,15 +16,12 @@ class ExitPage(View):
 
 class MainPage(View):
     def get(self, request):
-        tasks = Task.objects.all()
         date_today = timezone.now()
         tasks = get_task()
         context = {
             "tasks": tasks,
-            "date_today": date_today,
-            "tasks ": tasks
+            "date_today": date_today
         }
-
         return render(request, 'index.html', context=context)
 
     def Task(self,request):
