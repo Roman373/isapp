@@ -5,7 +5,7 @@ from django.views.generic.list import ListView
 from .forms import TaskForm
 from pulls.models import Task
 from django.utils import timezone
-from .basa import  *
+from .basa import *
 
 
 class ExitPage(View):
