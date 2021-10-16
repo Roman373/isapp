@@ -1,16 +1,17 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>Добавление задачи</title>
+
+{% block link %}
     <link rel="stylesheet" href="{% static 'css/add.css'%}" type="text/css">
-</head>
-<body>
-<button name="write" class="exitBtn" onclick="window.location.href='exit.html'">Выход</button>
-<h3 class="cssdata">Сегодня:<div id="current_date_time_block"></div></h3>
-      <h2 id="myDIV">Новая задача</h2>
-    <form id="my" method="post" >
+{% endblock %}
+
+{% block title %}Добавление задачи{% endblock %}
+
+{% block content %}
+    <button name="write" class="exitBtn" onclick="window.location.href='exit.html'">Выход</button>
+    <h3 class="cssdata">Сегодня:<div id="current_date_time_block"></div></h3>
+    <h2 id="myDIV">Новая задача</h2>
+    <form id="my" method="post">
         {% csrf_token %}
         <p >Название: </p>
         {{ form.task_name }}<br>
@@ -18,8 +19,6 @@
         <br>{{ form.data }}
         <span> {{ error }}</span>
     </form>
-      <button onclick="newElement(window.location.href='index.html')" class="addBtn" type="submit">Добавить</button>
+      <button onclick="window.location.href='index.html'" class="addBtn" >Добавить</button>
     </div>
-<script src="{% static 'js/script.js' %}"></script>
-</body>
-</html>
+{% endblock %}

@@ -1,21 +1,22 @@
+{% extends 'base.html' %}
 {% load static %}
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>Список дел</title>
-    <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
-</head>
-<body>
-<button name="write" class="exitBtn" onclick="window.location.href='exit.html'">Выход</button>
-</div>
-<h3 class="cssdata">Сегодня: <div >{{date_today | date:"d.m.Y"}}</div></h3>
-<h2 id="myDIV">Cписок дел</h2>
-<table id="myUL">
-{% for task in tasks %}
-{% include 'tasks.html' %}
-{% endfor %}
-</table>
-<button onclick="window.location.href='add.html' " class="addBtn">Добавить</button>
 
-</body>
-</html>
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+{% endblock %}
+
+{% block title %}Гостевая страница{% endblock %}
+
+{% block content %}
+    <button name="write" class="exitBtn" onclick="window.location.href='exit.html'">Выход</button>
+    </div>
+    <h3 class="cssdata">Сегодня: <div >{{date_today | date:"d.m.Y"}}</div></h3>
+    <h2 id="myDIV">Cписок дел</h2>
+    <table id="myUL">
+        {% for task in tasks %}
+        {% include 'tasks.html' %}
+        {% endfor %}
+    </table>
+    <button onclick="window.location.href='add.html' " class="addBtn">Добавить</button>
+
+{% endblock %}
