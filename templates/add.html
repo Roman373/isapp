@@ -9,16 +9,17 @@
 
 {% block content %}
     <button name="write" class="exitBtn" onclick="window.location.href='exit.html'">Выход</button>
-    <h3 class="cssdata">Сегодня:<div id="current_date_time_block"></div></h3>
+    <h3 class="cssdata">Сегодня: <br>{{date_today | date:"d.m.Y"}}</h3>
     <h2 id="myDIV">Новая задача</h2>
-    <form id="my" method="post">
+    <form  method="post">
+    <div id="my">
         {% csrf_token %}
         <p >Название: </p>
         {{ form.task_name }}<br>
         <p id="text">Дата завершения: </p>
         <br>{{ form.data }}
-        <span> {{ error }}</span>
+        <span> {{ error }}</span></div>
+
+        <button  class="addBtn" >Добавить</button>
     </form>
-      <button onclick="window.location.href='index.html'" class="addBtn" >Добавить</button>
-    </div>
 {% endblock %}

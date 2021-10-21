@@ -10,9 +10,13 @@
 {% block content %}
     <div class="exit">
         <h2 style="text-align: center">Авторизация</h2>
-        <input type="text" placeholder="Логин" id="myLogin"><br>
-        <input type="password" placeholder="Пароль" id="myPassword">
-        <div id="nullExit"></div>
-        <button id='btn' onclick="window.location.href='index.html'" class="exitBtn">Вход</button>
+        <form method="post" >
+            {% csrf_token %}
+        <input type="text" placeholder="Логин" id="myLogin" name="login"><br>
+        <input type="password" placeholder="Пароль" id="myPassword" name="password">
+
+        <button type="submit" class="exitBtn">Вход</button>
+        </form>
+        <div id="nullExit">{{ message }}</div>
     </div>
 {% endblock %}
